@@ -15,14 +15,16 @@ import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Import Layouts
-import { FullComponent } from './layouts/full/full.component';
-import { BlankComponent } from './layouts/blank/blank.component';
+import { FullComponent } from '../_theme/layouts/full/full.component';
+import { BlankComponent } from '../_theme/layouts/blank/blank.component';
 
 // Vertical Layout
-import { SidebarComponent } from './layouts/full/sidebar/sidebar.component';
-import { HeaderComponent } from './layouts/full/header/header.component';
-import { BrandingComponent } from './layouts/full/sidebar/branding.component';
-import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
+import { SidebarComponent } from '../_theme/layouts/full/sidebar/sidebar.component';
+import { HeaderComponent } from '../_theme/layouts/full/header/header.component';
+import { BrandingComponent } from '../_theme/layouts/full/sidebar/branding.component';
+import { AppNavItemComponent } from '../_theme/layouts/full/sidebar/nav-item/nav-item.component';
+import {LayoutsModule} from "./layouts/layouts.module";
+import {PagesModule} from "./pages/pages.module";
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     BlankComponent,
     SidebarComponent,
     HeaderComponent,
-    BrandingComponent,
+    // BrandingComponent,
     AppNavItemComponent,
   ],
   imports: [
@@ -39,10 +41,9 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
     TablerIconsModule.pick(TablerIcons),
+    MaterialModule,
+    LayoutsModule,
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],

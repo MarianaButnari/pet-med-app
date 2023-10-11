@@ -1,25 +1,36 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { PagesRoutes } from './pages.routing.module';
-import { MaterialModule } from '../material.module';
-import { FormsModule } from '@angular/forms';
-import { NgApexchartsModule } from 'ng-apexcharts';
-// icons
-import { TablerIconsModule } from 'angular-tabler-icons';
-import * as TablerIcons from 'angular-tabler-icons/icons';
-import { AppDashboardComponent } from './dashboard/dashboard.component';
+import { RouterModule, Routes } from "@angular/router";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {ReusableModule} from "../reusable/reusable.module";
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {NgApexchartsModule} from "ng-apexcharts";
+import {TablerIconsModule} from "angular-tabler-icons";
+
+
+export const NewPagesRoutes: Routes = [
+  {
+    path: '',
+    component: DashboardComponent,
+    data: {
+      title: 'Starter Page',
+    },
+  },
+];
 
 @NgModule({
-  declarations: [AppDashboardComponent],
+  declarations: [
+    DashboardComponent
+  ],
   imports: [
     CommonModule,
-    MaterialModule,
-    FormsModule,
+    RouterModule.forChild(NewPagesRoutes),
+    ReusableModule,
+    MatButtonModule,
+    MatCardModule,
     NgApexchartsModule,
-    RouterModule.forChild(PagesRoutes),
-    TablerIconsModule.pick(TablerIcons),
-  ],
-  exports: [TablerIconsModule],
+    TablerIconsModule,
+  ]
 })
-export class PagesModule {}
+export class PagesModule { }

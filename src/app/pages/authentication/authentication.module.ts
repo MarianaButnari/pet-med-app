@@ -1,38 +1,35 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatButtonModule } from '@angular/material/button';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {RouterModule, Routes} from "@angular/router";
+import {LoginComponent} from "./login/login.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MaterialModule} from "../../material.module";
+import { RegisterComponent } from './register/register.component';
 
-// icons
-import { TablerIconsModule } from 'angular-tabler-icons';
-import * as TablerIcons from 'angular-tabler-icons/icons';
+export const AuthenticationRoutes: Routes = [
+  {
+    path: '',
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent,
+      },      {
+        path: 'register',
+        component: RegisterComponent,
+      },
+    ],
+  },
+];
 
-import { AuthenticationRoutes } from './authentication.routing';
-
-import { AppSideLoginComponent } from './login/login.component';
-import { AppSideRegisterComponent } from './register/register.component';
 
 @NgModule({
+  declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AuthenticationRoutes),
-    MatIconModule,
-    MatCardModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatButtonModule,
-    FormsModule,
+    MaterialModule,
     ReactiveFormsModule,
-    TablerIconsModule.pick(TablerIcons),
-  ],
-  declarations: [
-    AppSideLoginComponent,
-    AppSideRegisterComponent,
-  ],
+    FormsModule,
+  ]
 })
-export class AuthenticationModule {}
+export class AuthenticationModule { }

@@ -1,41 +1,48 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlankComponent } from './layouts/blank/blank.component';
-import { FullComponent } from './layouts/full/full.component';
+import { BlankComponent } from '../_theme/layouts/blank/blank.component';
+import { FullComponent } from '../_theme/layouts/full/full.component';
+import {AppComponent} from "./app.component";
 
 const routes: Routes = [
-  {
-    path: '',
-    component: FullComponent,
-    children: [
       {
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full',
       },
+  // {
+  //   path: '',
+  //   // component: FullComponent,
+  //   component: AppComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       redirectTo: '/dashboard',
+  //       pathMatch: 'full',
+  //     },
       {
         path: 'dashboard',
         loadChildren: () =>
           import('./pages/pages.module').then((m) => m.PagesModule),
       },
-      {
-        path: 'ui-components',
-        loadChildren: () =>
-          import('./pages/ui-components/ui-components.module').then(
-            (m) => m.UicomponentsModule
-          ),
-      },
-      {
-        path: 'extra',
-        loadChildren: () =>
-          import('./pages/extra/extra.module').then((m) => m.ExtraModule),
-      },
-    ],
-  },
-  {
-    path: '',
-    component: BlankComponent,
-    children: [
+      // {
+      //   path: 'ui-components',
+      //   loadChildren: () =>
+      //     import('../_theme/pages/ui-components/ui-components.module').then(
+      //       (m) => m.UicomponentsModule
+      //     ),
+      // },
+      // {
+      //   path: 'extra',
+      //   loadChildren: () =>
+      //     import('../_theme/pages/extra/extra.module').then((m) => m.ExtraModule),
+      // },
+  //   ],
+  // },
+  // {
+  //   path: '',
+  //   component: BlankComponent,
+  //   children: [
       {
         path: 'authentication',
         loadChildren: () =>
@@ -43,8 +50,8 @@ const routes: Routes = [
             (m) => m.AuthenticationModule
           ),
       },
-    ],
-  },
+  //   ],
+  // },
 ];
 
 @NgModule({
