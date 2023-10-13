@@ -17,7 +17,8 @@ export class LoggedInGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const idToken = !!this.sessionStorageService.get('idToken');const loggedOrSignedInUser = !!this.eventStorageService.loggedInUser$.subscribe(result => result);
+    const idToken = !!this.sessionStorageService.get('idToken');
+    const loggedOrSignedInUser = !!this.eventStorageService.loggedInUser$.subscribe(result => result);
 
     if (idToken) {
       this.eventStorageService.setIsLoggedIn(true);

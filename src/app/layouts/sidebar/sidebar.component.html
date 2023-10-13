@@ -18,7 +18,7 @@
         </h5>
       </div>
       <div class="m-l-auto">
-        <button  mat-icon-button color="primary"  class="shadow-none icon-48" [routerLink]="['authentication/login']">
+        <button  mat-icon-button color="primary"  class="shadow-none icon-48" (click)="logout()">
           <i-tabler
             name="power"
             class="bg-light-primary text-primary d-flex"

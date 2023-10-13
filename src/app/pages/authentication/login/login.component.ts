@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
            // @ts-ignore
            this.eventStorageService.setIsLoggedIn(false);
            this.sessionStorageService.delete('idToken');
-           this.router.navigate(['login'])
+           this.router.navigate(['authentication/login'])
          }
         });
       }
