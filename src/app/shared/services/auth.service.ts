@@ -21,9 +21,6 @@ export class AuthService {
       email: userAuth.email,
       password: userAuth.password,
       returnSecureToken: userAuth.returnSecureToken
-    }, {headers})
-      .pipe(catchError(err => of(err)));
+    }, {headers});
   }
-
-
 }

@@ -4,6 +4,7 @@ import {Subject, Subscription, take, takeUntil} from "rxjs";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {MOBILE_VIEW, MONITOR_VIEW, TABLET_VIEW} from "./app.constants";
 import {EventStorageService} from "./shared/services/event-storage.service";
+import {User} from "./shared/models/user.model";
 
 @Component({
   selector: 'app-root',
@@ -59,7 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private getLoggedInUser() {
     this.eventStorage.isLoggedIn$
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(result => {
+      .subscribe((result: boolean) => {
         this.authenticated = result;
       });
   }

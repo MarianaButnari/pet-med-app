@@ -4,6 +4,7 @@ const DEFAULT_VALUES = {
   refreshToken: null,
   expiresIn: null,
   localId: null,
+  registered: null,
 }
 
 export class AuthResponse {
@@ -12,6 +13,7 @@ export class AuthResponse {
   refreshToken: string;
   expiresIn: string;
   localId: string;
+  registered?: boolean;
 
   constructor(authResponse: object = DEFAULT_VALUES) {
     Object.assign(this, authResponse)

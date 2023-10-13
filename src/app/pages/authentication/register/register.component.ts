@@ -5,6 +5,8 @@ import {UserAuth} from "../models/user-auth.model";
 import {AuthService} from "../../../shared/services/auth.service";
 import {EventStorageService} from "../../../shared/services/event-storage.service";
 import {AuthResponse} from "../models/auth-response.model";
+import {User} from "../../../shared/models/user.model";
+import {SessionStorageService} from "../../../shared/services/session-storage.service";
 
 @Component({
   selector: 'app-register',
@@ -15,6 +17,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private eventStorageService: EventStorageService,
+              private sessionStorageService: SessionStorageService,
               private router: Router) {
   }
 
@@ -39,12 +42,18 @@ export class RegisterComponent implements OnInit {
     this.authService.signup(userAuth).subscribe({
       next: (response: AuthResponse) => {
       if (response) {
-        this.eventStorageService.setIsLoggedInUser(true)
+        // const newlySignedInUser = new User();
+        // newlySignedInUser.email = response.email;
+        // newlySignedInUser.idToken = response.idToken;
+        // newlySignedInUser.expiresIn = new Date( Date.now() + +response.expiresIn * 1000);
+        this.eventStorageService.setIsLoggedIn(!!response);
+        this.sessionStorageService.set('idToken',  response.idToken)
         this.router.navigate(['/'])
       }
     },
-      error: err => {
-
+      error: error => {
+        console.error(error);
+        // console.error(error.error.error.message === ErrorMessage.EMAIL_EXISTS ? ErrorConstants.EMAIL_EXISTS : 'blah blah' );
       }
   });
   }

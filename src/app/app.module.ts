@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import { BrandingComponent } from '../_theme/layouts/full/sidebar/branding.compo
 import { AppNavItemComponent } from '../_theme/layouts/full/sidebar/nav-item/nav-item.component';
 import {LayoutsModule} from "./layouts/layouts.module";
 import {PagesModule} from "./pages/pages.module";
+import {ErrorInterceptor} from "./shared/interceptors/error.interceptor";
+import {HotToastModule} from "@ngneat/hot-toast";
 
 @NgModule({
   declarations: [
@@ -42,10 +44,16 @@ import {PagesModule} from "./pages/pages.module";
     HttpClientModule,
     BrowserAnimationsModule,
     TablerIconsModule.pick(TablerIcons),
+    HotToastModule.forRoot(),
     MaterialModule,
     LayoutsModule,
   ],
   exports: [TablerIconsModule],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ErrorInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

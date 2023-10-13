@@ -7,12 +7,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {NgApexchartsModule} from "ng-apexcharts";
 import {TablerIconsModule} from "angular-tabler-icons";
+import {LoggedInGuard} from "../shared/guards/logged-in.guard";
 
 
 export const NewPagesRoutes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    canActivate: [LoggedInGuard],
     data: {
       title: 'Starter Page',
     },

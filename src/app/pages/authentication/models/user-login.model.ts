@@ -1,11 +1,13 @@
 const DEFAULT_VALUES = {
-  username: null,
+  email: null,
   password: null,
+  returnSecureToken: true
 }
 
 export class UserLogin {
-  username: string;
+  email: string;
   password: string;
+  returnSecureToken: boolean;
 
   constructor(userLogin: object = DEFAULT_VALUES) {
     Object.assign(this, userLogin)
