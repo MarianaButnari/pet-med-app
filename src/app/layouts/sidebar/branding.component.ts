@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-branding',
   template: `
     <div class="branding d-flex justify-content-center">
-      <a href="/">
+      <a [routerLink]="['/dashboard']">
         <img
           src="../../../assets/favicon_io/heart.svg"
           class="align-middle m-2"

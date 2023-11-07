@@ -24,10 +24,14 @@ import { HeaderComponent } from '../_theme/layouts/full/header/header.component'
 import { BrandingComponent } from '../_theme/layouts/full/sidebar/branding.component';
 import { AppNavItemComponent } from '../_theme/layouts/full/sidebar/nav-item/nav-item.component';
 import {LayoutsModule} from "./layouts/layouts.module";
-import {PagesModule} from "./pages/pages.module";
 import {ErrorInterceptor} from "./shared/interceptors/error.interceptor";
 import {HotToastModule} from "@ngneat/hot-toast";
+import {ContentTypeInterceptor} from "./shared/interceptors/content-type.interceptor";
 
+import { registerLocaleData } from '@angular/common';
+import localeAr from '@angular/common/locales/ar';
+
+registerLocaleData(localeAr);
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,11 +53,18 @@ import {HotToastModule} from "@ngneat/hot-toast";
     LayoutsModule,
   ],
   exports: [TablerIconsModule],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: ErrorInterceptor,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ContentTypeInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

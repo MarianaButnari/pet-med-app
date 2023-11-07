@@ -1,6 +1,18 @@
+const DEFAULT_VALUES = {
+  id: null,
+  firstName: null,
+  lastName: null,
+  birthDate: null,
+  about: null,
+  userImg: null,
+  blood: null,
+  height: null,
+  weight: null,
+
+}
 
 export class UserProfile {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   birthDate: string;
@@ -9,4 +21,8 @@ export class UserProfile {
   blood: string;
   height: string;
   weight: string
+
+  constructor(userProfile: object = DEFAULT_VALUES) {
+    Object.assign(this, userProfile)
+  }
 }

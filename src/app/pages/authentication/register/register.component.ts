@@ -42,12 +42,9 @@ export class RegisterComponent implements OnInit {
     this.authService.signup(userAuth).subscribe({
       next: (response: AuthResponse) => {
       if (response) {
-        // const newlySignedInUser = new User();
-        // newlySignedInUser.email = response.email;
-        // newlySignedInUser.idToken = response.idToken;
-        // newlySignedInUser.expiresIn = new Date( Date.now() + +response.expiresIn * 1000);
         this.eventStorageService.setIsLoggedIn(!!response);
         this.sessionStorageService.set('idToken',  response.idToken)
+        this.createUser(response);
         this.router.navigate(['/'])
       }
     },
@@ -57,4 +54,14 @@ export class RegisterComponent implements OnInit {
       }
   });
   }
+
+  createUser(item: AuthResponse) {
+    const newUser = new User()
+    newUser.email = item.email;
+    newUser.expiresIn = new Date( Date.now() + +item.expiresIn * 1000);
+    newUser.idToken = item.idToken;
+    this.eventStorageService.setLoggedInUser(newUser);
+    // this.authService.createUserProfile(newUser).subscribe(response => console.error(response));
+  }
+
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
-import { Observable } from 'rxjs';
+import {map, Observable, take} from 'rxjs';
 import {SessionStorageService} from "../services/session-storage.service";
 import {EventStorageService} from "../services/event-storage.service";
 
@@ -18,7 +18,7 @@ export class LoggedInGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const idToken = !!this.sessionStorageService.get('idToken');
-    const loggedOrSignedInUser = !!this.eventStorageService.loggedInUser$.subscribe(result => result);
+    const loggedOrSignedInUser = this.eventStorageService.loggedInUser$.pipe(take(1), map(user => !!user));
 
     if (idToken) {
       this.eventStorageService.setIsLoggedIn(true);
@@ -26,7 +26,7 @@ export class LoggedInGuard implements CanActivate {
     } else {
       this.eventStorageService.setIsLoggedIn(false);
       this.sessionStorageService.delete('idToken');
-       return this.router.navigate(['/authentication/login'])
+      return this.router.createUrlTree(['/authentication/login']);
     }
   }
 }

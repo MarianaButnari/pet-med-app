@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BlankComponent } from '../_theme/layouts/blank/blank.component';
 import { FullComponent } from '../_theme/layouts/full/full.component';
 import {AppComponent} from "./app.component";
+import {LoggedInGuard} from "./shared/guards/logged-in.guard";
 
 const routes: Routes = [
       {
@@ -22,8 +23,15 @@ const routes: Routes = [
   //     },
       {
         path: 'dashboard',
+        canActivate: [LoggedInGuard],
         loadChildren: () =>
-          import('./pages/pages.module').then((m) => m.PagesModule),
+          import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
+      },
+  {
+        path: 'doctor',
+        canActivate: [LoggedInGuard],
+        loadChildren: () =>
+          import('./pages/doctor/doctor.module').then((m) => m.DoctorModule),
       },
       // {
       //   path: 'ui-components',

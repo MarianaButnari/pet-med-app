@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {LoginService} from "../../../shared/services/login.service";
 import {UserLogin} from "../models/user-login.model";
 import {Router} from "@angular/router";
-import {User} from "../../../shared/models/user.model";
 import {EventStorageService} from "../../../shared/services/event-storage.service";
 import {SessionStorageService} from "../../../shared/services/session-storage.service";
+import {AuthService} from "../../../shared/services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +13,7 @@ import {SessionStorageService} from "../../../shared/services/session-storage.se
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   constructor(private router: Router,
-              private loginService: LoginService,
+              private authService: AuthService,
               private eventStorageService: EventStorageService,
               private sessionStorageService: SessionStorageService) {
   }
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
       return;
     } else {
       if(userLogin){
-        this.loginService.login(userLogin).subscribe((response) => {
+        this.authService.login(userLogin).subscribe((response) => {
          if (response) {
            // const loggedInUser = new User();
            // loggedInUser.email = response.email;

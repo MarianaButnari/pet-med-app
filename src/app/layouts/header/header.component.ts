@@ -1,8 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {Router} from "@angular/router";
-import {EventStorageService} from "../../shared/services/event-storage.service";
-import {SessionStorageService} from "../../shared/services/session-storage.service";
+import {AuthService} from "../../shared/services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -18,13 +16,9 @@ export class HeaderComponent {
   showFiller = false;
 
   constructor(public dialog: MatDialog,
-              private router: Router,
-              private eventStorageService: EventStorageService,
-              private sessionStorageService: SessionStorageService) {}
+              private authService: AuthService) {}
 
   logout() {
-    this.eventStorageService.setIsLoggedIn(false);
-    this.sessionStorageService.delete('idToken');
-    this.router.navigate(['authentication/login'])
+   this.authService.logout();
   }
 }

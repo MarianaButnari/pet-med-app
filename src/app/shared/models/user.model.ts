@@ -19,11 +19,26 @@ export class User {
   userProfile: UserProfile;
   address: AddressModel;
   roles: Role[];
-  idToken?: string;
+  idToken: string;
   expiresIn: Date;
 
   constructor(user: object = DEFAULT_VALUES) {
     Object.assign(this, user)
+    // @ts-ignore
+    if(user && user['userProfile']) {
+      // @ts-ignore
+      this.userProfile = new UserProfile(user['userProfile']);
+    }
+    // @ts-ignore
+    if(user && user['address']) {
+      // @ts-ignore
+      this.address = new AddressModel(user['address']);
+    }
+    // @ts-ignore
+    if (user && user[`roles`]) {
+      // @ts-ignore
+      this.roles = user[`roles`].map((role: Role) => new Role(role));
+    }
   }
 
 }
