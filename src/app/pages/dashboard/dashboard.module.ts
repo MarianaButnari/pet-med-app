@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import {CommonModule, DatePipe} from '@angular/common';
+import {CommonModule, DatePipe, UpperCasePipe} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {DashboardComponent} from "./dashboard.component";
 import {ReusableModule} from "../../reusable/reusable.module";
+import {TablerIconsModule} from "angular-tabler-icons";
 
 export const DashboardRoutes: Routes = [
   {
@@ -13,9 +14,10 @@ export const DashboardRoutes: Routes = [
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
+    CommonModule,
     RouterModule.forChild(DashboardRoutes),
     ReusableModule,
-    DatePipe
+    TablerIconsModule,
   ]
 })
 export class DashboardModule { }
