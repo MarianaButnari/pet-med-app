@@ -5,6 +5,7 @@ import {LoginComponent} from "./login/login.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MaterialModule} from "../../material.module";
 import { RegisterComponent } from './register/register.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 export const AuthenticationRoutes: Routes = [
   {
@@ -30,6 +31,7 @@ export const AuthenticationRoutes: Routes = [
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule,
   ]
 })
 export class AuthenticationModule { }

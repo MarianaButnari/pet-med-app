@@ -5,6 +5,7 @@ import {BreakpointObserver} from "@angular/cdk/layout";
 import {MOBILE_VIEW, MONITOR_VIEW, TABLET_VIEW} from "./app.constants";
 import {EventStorageService} from "./shared/services/event-storage.service";
 import {User} from "./shared/models/user.model";
+import {LangService} from "./shared/services/lang.service";
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private eventStorage: EventStorageService) {
+              private eventStorage: EventStorageService,
+              private langService: LangService,
+              ) {
     this.htmlElement = document.querySelector('html')!;
     this.breakpointObserver
       .observe([MOBILE_VIEW, TABLET_VIEW, MONITOR_VIEW])
@@ -37,6 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
   ngOnInit(): void {
+    this.langService.init();
     this.getLoggedInUser();
   }
 

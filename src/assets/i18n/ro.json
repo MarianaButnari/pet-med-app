@@ -1,0 +1,24 @@
+{
+  "GENERAL": {
+    "COPYRIGHT": "Health Care Angular © 2023 All Rights Reserved."
+  },
+  "USER": {
+    "LOGIN": "Autentificare",
+    "LOGOUT": "Deconectare",
+    "REGISTER": "Înregistrare",
+    "NAME": "Nume Utilizator"
+  },
+  "SIDENAV": {
+    "DASHBOARD": "Panou de bord",
+    "DOCTOR": "Doctor",
+    "CONTACT": "Contact",
+    "TRACKER": "Tracker"
+  },
+  "PROFILE": {
+    "MENU": {
+      "PROFILE": "Profilul meu",
+      "ACCOUNT": "Profilul meu",
+      "TASK": "Sarcina mea"
+    }
+  }
+}

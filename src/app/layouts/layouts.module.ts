@@ -12,6 +12,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 
@@ -22,17 +23,18 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     BrandingComponent,
     HeaderComponent
   ],
-  imports: [
-    CommonModule,
-    MatButtonModule,
-    MatListModule,
-    TablerIconsModule,
-    RouterLink,
-    MatBadgeModule,
-    MatIconModule,
-    MatMenuModule,
-    MatToolbarModule
-  ],
+    imports: [
+        CommonModule,
+        MatButtonModule,
+        MatListModule,
+        TablerIconsModule,
+        RouterLink,
+        MatBadgeModule,
+        MatIconModule,
+        MatMenuModule,
+        MatToolbarModule,
+        TranslateModule
+    ],
   exports: [
     SidebarComponent,
     HeaderComponent

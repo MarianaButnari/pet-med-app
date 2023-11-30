@@ -15,4 +15,16 @@ export class SessionStorageService {
   public delete(key: string): void {
     sessionStorage.removeItem(key);
   }
+
+  public setToLocalStorage(key: string, value: string): void {
+    localStorage.setItem(key, value);
+  }
+
+  public getFromLocalStorage(key: string): string{
+    return localStorage.getItem(key)!;
+  }
+
+  public deleteFromLocalStorage(key: string): void {
+    localStorage.removeItem(key);
+  }
 }

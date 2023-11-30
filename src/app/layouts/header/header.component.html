@@ -9,10 +9,16 @@
   <!-- Notification Dropdown -->
   <!-- --------------------------------------------------------------- -->
 
-  <button mat-icon-button aria-label="Notifications">
-    <i-tabler  class="d-flex" name="bell"  matBadge="1"  matBadgeColor="primary" ></i-tabler>
+  <button mat-icon-button [matMenuTriggerFor]="langmenu" aria-label="Notifications">
+    <i-tabler class="d-flex" name="language"></i-tabler>
   </button>
-
+  <mat-menu #langmenu="matMenu" class="topbar-dd cardWithShadow">
+    <ng-container *ngFor="let lang of supportedLanguages">
+      <div class="p-x-12 m-y-12">
+        <a (click)="setLanguage(lang)" mat-stroked-button color="primary" class="w-100">{{lang.label}}</a>
+      </div>
+    </ng-container>
+  </mat-menu>
   <span class="flex-1-auto"></span>
   <button
     mat-icon-button
@@ -26,32 +32,21 @@
     />
   </button>
   <mat-menu #profilemenu="matMenu" class="topbar-dd cardWithShadow">
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"
-      ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Profile
-    </button>
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"
-      ><i-tabler name="mail" class="icon-18 d-flex"></i-tabler></mat-icon
-      >My Account
-    </button>
-    <button mat-menu-item>
-      <mat-icon class="d-flex align-items-center"
-      ><i-tabler
-        name="list-check"
-        class="icon-18 d-flex"
-      ></i-tabler></mat-icon
-      >My Task
-    </button>
-
+    <ng-container *ngFor="let menuItem of profileMenuItems">
+      <button mat-menu-item [routerLink]="menuItem.route">
+        <mat-icon class="d-flex align-items-center">
+          <i-tabler name="{{menuItem.iconName}}" class="icon-18 d-flex"></i-tabler>
+        </mat-icon>
+        {{menuItem.displayName! | translate}}
+      </button>
+    </ng-container>
     <div class="p-x-12 m-t-12">
       <a
         (click)="logout()"
         mat-stroked-button
         color="primary"
         class="w-100"
-      >Logout</a
+      >{{'USER.LOGOUT' | translate}}</a
       >
     </div>
   </mat-menu>

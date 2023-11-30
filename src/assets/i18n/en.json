@@ -1,7 +1,24 @@
 {
-  "Starter": "Starter",
-  "Menu Level": "Menu Level",
-  "Menu 1": "Menu 1",
-  "Menu 2": "Menu 2",
-  "Disabled": "Disabled"
+  "GENERAL": {
+    "COPYRIGHT": "Health Care Angular © 2023 All Rights Reserved."
+  },
+  "USER": {
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "REGISTER": "Register",
+    "NAME": "Username"
+  },
+  "SIDENAV": {
+    "DASHBOARD": "Dashboard",
+    "DOCTOR": "Doctor",
+    "CONTACT": "Contact",
+    "TRACKER": "Tracker"
+  },
+  "PROFILE": {
+    "MENU": {
+      "PROFILE": "My Profile",
+      "ACCOUNT": "My Account",
+      "TASK": "My Task"
+    }
+  }
 }

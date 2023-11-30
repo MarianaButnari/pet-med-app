@@ -5,20 +5,20 @@ export const sideNavItems: NavItem[] = [
   //   navCap: 'Home',
   // },
   {
-    displayName: 'Dashboard',
+    displayName: 'SIDENAV.DASHBOARD',
     iconName: 'layout-dashboard',
     route: '/dashboard',
   },
   {
-    displayName: 'Doctor',
+    displayName: 'SIDENAV.DOCTOR',
     iconName: 'circle-plus',
     route: '/doctor',
   },  {
-    displayName: 'Contact',
+    displayName: 'SIDENAV.CONTACT',
     iconName: 'users',
     route: '/contact',
   },  {
-    displayName: 'Tracker',
+    displayName: 'SIDENAV.TRACKER',
     iconName: 'activity-heartbeat',
     route: '/tracker',
   },
