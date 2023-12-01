@@ -6,6 +6,6 @@ export const environment = {
     login: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBv__iJTG49i7V7Ol9mTHbgxBj6VaV4xGQ',
   },
   user: {
-    profile: 'https://health-care-d4b1e-default-rtdb.europe-west1.firebasedatabase.app/'
+    profile: 'https://health-care-d4b1e-default-rtdb.europe-west1.firebasedatabase.app/user.json?auth=AIzaSyBv__iJTG49i7V7Ol9mTHbgxBj6VaV4xGQ',
   }
 }
