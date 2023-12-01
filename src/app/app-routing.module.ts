@@ -27,7 +27,7 @@ const routes: Routes = [
   //   loadChildren: () =>
   //     import('./pages/doctor/doctor.module').then((m) => m.DoctorModule),
   // },
-  {path: 'doctor', loadComponent: () => import('./pages/doctor/doctor.component').then(m => m.DoctorComponent)}
+  {path: 'doctor', canActivate: [LoggedInGuard], loadComponent: () => import('./pages/doctor/doctor.component').then(m => m.DoctorComponent)}
 ];
 
 @NgModule({

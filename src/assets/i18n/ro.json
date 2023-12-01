@@ -6,7 +6,12 @@
     "LOGIN": "Autentificare",
     "LOGOUT": "Deconectare",
     "REGISTER": "Înregistrare",
-    "NAME": "Nume Utilizator"
+    "NAME": "Nume Utilizator",
+    "PASSWORD": "Parola",
+    "FORGOT_PASS": "Am uitat parola",
+    "SIGN_IN": "Autentificare",
+    "NEW_HERE": "Nou la HealthCare?",
+    "CREATE_ACCOUNT": "Creați un cont"
   },
   "SIDENAV": {
     "DASHBOARD": "Panou de bord",

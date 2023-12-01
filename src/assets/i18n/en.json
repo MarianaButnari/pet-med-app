@@ -6,7 +6,12 @@
     "LOGIN": "Login",
     "LOGOUT": "Logout",
     "REGISTER": "Register",
-    "NAME": "Username"
+    "NAME": "Username",
+    "PASSWORD": "Password",
+    "FORGOT_PASS": "Forgot Password",
+    "SIGN_IN": "Sign In",
+    "NEW_HERE": "New to HealthCare?",
+    "CREATE_ACCOUNT": "Create an account"
   },
   "SIDENAV": {
     "DASHBOARD": "Dashboard",

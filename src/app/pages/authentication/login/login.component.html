@@ -13,32 +13,24 @@
               <input matInput [formControlName]="'email'"/>
             </mat-form-field>
             <!-- password -->
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-            >Password</mat-label
-            >
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.PASSWORD' | translate}}</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
               <input matInput type="password" [formControlName]="'password'"/>
             </mat-form-field>
 
             <div class="d-flex align-items-center m-b-12">
-              <a
-                [routerLink]="['/']"
-                class="text-primary f-w-600 text-decoration-none m-l-auto f-s-14"
-              >Forgot Password ?</a
-              >
+              <a [routerLink]="['/']" class="text-primary f-w-600 text-decoration-none m-l-auto f-s-14">{{'USER.FORGOT_PASS' | translate}}</a>
             </div>
             <a (click)="onLogin()" mat-flat-button color="primary" class="w-100">
-              Sign In
+              {{'USER.SIGN_IN' | translate}}
             </a>
           </form>
-          <span class="d-block f-w-500 text-center m-t-24"
-          >New to HealthCare?
+          <span class="d-block f-w-500 text-center m-t-24">{{'USER.NEW_HERE' | translate}}
             <a
               [routerLink]="['/authentication/register']"
-              class="text-decoration-none text-primary f-w-500 f-s-14"
-            >
-              Create an account</a
-            >
+              class="text-decoration-none text-primary f-w-500 f-s-14">
+              {{'USER.CREATE_ACCOUNT' | translate}}
+            </a>
           </span>
         </mat-card-content>
       </mat-card>
