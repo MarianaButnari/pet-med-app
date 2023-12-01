@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2. and it is kept up to date with the latest, that means that current version is 17.0.4.
 
 
-## How to?
+## How to? Sure, I'll Deploy it , be patient :)
 1.  clone the project;
 2.  navigate to `package.json` and from there run `npm install` in the terminal fo your ide or whatever terminal you are using;
 3.  for a dev server run `npm start`, wait for the magic to happen and Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
