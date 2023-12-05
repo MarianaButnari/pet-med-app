@@ -15,7 +15,11 @@
             <!-- password -->
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.PASSWORD' | translate}}</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" [formControlName]="'password'"/>
+              <input matInput [type]="fieldTextType ? 'text' : 'password'" [formControlName]="'password'"/>
+              <button matSuffix mat-icon-button aria-label="Clear" (click)="toggleFieldTextType()">
+                <i-tabler *ngIf="fieldTextType" name="eye"></i-tabler>
+                <i-tabler *ngIf="!fieldTextType" name="eye-closed"></i-tabler>
+              </button>
             </mat-form-field>
 
             <div class="d-flex align-items-center m-b-12">

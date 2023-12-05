@@ -7,5 +7,6 @@ export const environment = {
   },
   user: {
     profile: 'https://health-care-d4b1e-default-rtdb.europe-west1.firebasedatabase.app/user.json?auth=AIzaSyBv__iJTG49i7V7Ol9mTHbgxBj6VaV4xGQ',
+    notifications: 'https://health-care-d4b1e-default-rtdb.europe-west1.firebasedatabase.app/notifications.json?auth=AIzaSyBv__iJTG49i7V7Ol9mTHbgxBj6VaV4xGQ'
   }
 }

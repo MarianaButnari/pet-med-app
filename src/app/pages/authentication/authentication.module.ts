@@ -6,6 +6,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MaterialModule} from "../../material.module";
 import { RegisterComponent } from './register/register.component';
 import {TranslateModule} from "@ngx-translate/core";
+import {TablerIconsModule} from "angular-tabler-icons";
 
 export const AuthenticationRoutes: Routes = [
   {
@@ -25,13 +26,14 @@ export const AuthenticationRoutes: Routes = [
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(AuthenticationRoutes),
-    MaterialModule,
-    ReactiveFormsModule,
-    FormsModule,
-    TranslateModule,
-  ]
+    imports: [
+        CommonModule,
+        RouterModule.forChild(AuthenticationRoutes),
+        MaterialModule,
+        ReactiveFormsModule,
+        FormsModule,
+        TranslateModule,
+        TablerIconsModule,
+    ]
 })
 export class AuthenticationModule { }

@@ -12,6 +12,7 @@ import {AuthService} from "../../../shared/services/auth.service";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  fieldTextType: boolean;
   constructor(private router: Router,
               private authService: AuthService,
               private eventStorageService: EventStorageService,
@@ -21,6 +22,37 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
   }
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  onLogin() {
+    const userLogin = new UserLogin();
+    userLogin.email = this.loginForm.value.email;
+    userLogin.password = this.loginForm.value.password;
+    if (this.loginForm.invalid) {
+      return;
+    } else {
+      if (userLogin) {
+        this.authService.login(userLogin).subscribe((response) => {
+          if (response) {
+            // const loggedInUser = new User();
+            // loggedInUser.email = response.email;
+            // loggedInUser.idToken = response.idToken;
+            // loggedInUser.expiresIn = new Date( Date.now() + +response.expiresIn * 1000);
+            this.eventStorageService.setIsLoggedIn(!!response);
+            this.sessionStorageService.set('idToken', response.idToken)
+            this.router.navigate(['/'])
+          } else {
+            // @ts-ignore
+            this.eventStorageService.setIsLoggedIn(false);
+            this.sessionStorageService.delete('idToken');
+            this.router.navigate(['authentication/login'])
+          }
+        });
+      }
+    }
+  }
 
   private initForm() {
     this.loginForm = new FormGroup({
@@ -29,33 +61,5 @@ export class LoginComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(6)]
       })
     });
-  }
-
-  onLogin(){
-    const userLogin = new UserLogin();
-    userLogin.email = this.loginForm.value.email;
-    userLogin.password = this.loginForm.value.password;
-    if(this.loginForm.invalid){
-      return;
-    } else {
-      if(userLogin){
-        this.authService.login(userLogin).subscribe((response) => {
-         if (response) {
-           // const loggedInUser = new User();
-           // loggedInUser.email = response.email;
-           // loggedInUser.idToken = response.idToken;
-           // loggedInUser.expiresIn = new Date( Date.now() + +response.expiresIn * 1000);
-           this.eventStorageService.setIsLoggedIn(!!response);
-           this.sessionStorageService.set('idToken',  response.idToken)
-           this.router.navigate(['/'])
-         } else {
-           // @ts-ignore
-           this.eventStorageService.setIsLoggedIn(false);
-           this.sessionStorageService.delete('idToken');
-           this.router.navigate(['authentication/login'])
-         }
-        });
-      }
-    }
   }
 }

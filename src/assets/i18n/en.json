@@ -24,6 +24,11 @@
       "PROFILE": "My Profile",
       "ACCOUNT": "My Account",
       "TASK": "My Task"
+    },
+    "USER_DATA" : {
+      "BLOOD": "Blood",
+      "HEIGHT": "Height",
+      "WEIGHT": "Weight"
     }
   }
 }

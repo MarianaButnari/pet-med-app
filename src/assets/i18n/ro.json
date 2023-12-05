@@ -24,6 +24,11 @@
       "PROFILE": "Profilul meu",
       "ACCOUNT": "Profilul meu",
       "TASK": "Sarcina mea"
+    },
+    "USER_DATA" : {
+      "BLOOD": "Grupa sanguină",
+      "HEIGHT": "Înălțime",
+      "WEIGHT": "Greutate"
     }
   }
 }

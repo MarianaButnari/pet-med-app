@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, Observable, of} from "rxjs";
+import {catchError, Observable, of, tap} from "rxjs";
 import {environment} from "../../../environments /environment";
 import {UserAuth} from "../../pages/authentication/models/user-auth.model";
 import {AuthResponse} from "../../pages/authentication/models/auth-response.model";
@@ -9,17 +9,16 @@ import {Router} from "@angular/router";
 import {EventStorageService} from "./event-storage.service";
 import {SessionStorageService} from "./session-storage.service";
 import {User} from "../models/user.model";
+import {UserProfile} from "../models/user-profile.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private httpClient: HttpClient,
-              private router: Router,
-              private eventStorageService: EventStorageService,
-              private sessionStorageService: SessionStorageService) {
-  }
-
+  private httpClient = inject(HttpClient);
+  private router = inject(Router);
+  private eventStorageService = inject(EventStorageService);
+  private sessionStorageService = inject(SessionStorageService);
   signup(userAuth: UserAuth): Observable<AuthResponse> {
     // TODO map response and catch errors;
     const authUrl = environment.general.auth;
@@ -46,9 +45,22 @@ export class AuthService {
     this.router.navigate(['authentication/login'])
   }
 
-  createUserProfile(user: User): Observable<any> {
-    const userProfileUrl = environment.user.profile;
-    return this.httpClient.post<any>(userProfileUrl , user)
+  // TODO this is a dummy createUserProfile method
+  createUserProfile(): Observable<UserProfile> {
+    const apiUrl = `${environment.user.profile}`;
+    const userProfile = {
+      id: null,
+      firstName: 'Mariana',
+      lastName: 'Malic',
+      birthDate: '10.05.2005',
+      about: 'something about me',
+      userImg: 'src/assets/images/profile/user-2.jpg',
+      blood: 'AB-',
+      height: '175',
+      weight: '55',
 
+    }
+    return this.httpClient.post<any>(apiUrl, userProfile).pipe(
+    )
   }
 }

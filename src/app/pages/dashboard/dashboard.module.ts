@@ -6,6 +6,7 @@ import {ReusableModule} from "../../reusable/reusable.module";
 import {TablerIconsModule} from "angular-tabler-icons";
 import {HealthSummaryComponent} from "../user/health-summary/health-summary.component";
 import {MatButtonModule} from "@angular/material/button";
+import {DynamicDashboardComponentDirective} from "../../shared/directives/dynamic-dashboard-component.directive";
 
 export const DashboardRoutes: Routes = [
   {
@@ -22,6 +23,7 @@ export const DashboardRoutes: Routes = [
     TablerIconsModule,
     HealthSummaryComponent,
     MatButtonModule,
+    DynamicDashboardComponentDirective,
   ]
 })
 export class DashboardModule { }
