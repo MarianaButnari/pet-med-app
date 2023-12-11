@@ -1,10 +1,19 @@
 
 
-<div>
-  <ngx-datatable class="material" [columnMode]="ColumnMode.flex" [headerHeight]="100" [rowHeight]="100" [footerHeight]="100" [rows]="rows" [columns]="columns"> </ngx-datatable>
-  <ngx-datatable-footer>
-    <ngb-pagination [(page)]="page"
-                    [pageSize]="pageSize"
-                    [collectionSize]="rows.length" />
-  </ngx-datatable-footer>
-</div>
+
+  <ngx-datatable class="material" [columnMode]="ColumnMode.flex" [headerHeight]="100" [rowHeight]="100" [footerHeight]="100" [rows]="rows" [columns]="columns">
+
+    <ngx-datatable-footer>
+      <ng-template ngx-datatable-footer-template>
+        <div class="w-100 d-flex justify-content-center">
+          <ngb-pagination *ngIf="rows"
+                          [(page)]="page"
+                          [pageSize]="pageSize"
+                          [collectionSize]="rows.length"
+                          [maxSize]="5"
+          />
+        </div>
+      </ng-template>
+    </ngx-datatable-footer>
+
+  </ngx-datatable>
