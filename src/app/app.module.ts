@@ -32,6 +32,7 @@ import { registerLocaleData } from '@angular/common';
 import localeAr from '@angular/common/locales/ar';
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localeAr);
 // AoT requires an exported function for factories
@@ -64,6 +65,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     }),
     MaterialModule,
     LayoutsModule,
+    NgbModule,
   ],
   exports: [TablerIconsModule],
   providers: [

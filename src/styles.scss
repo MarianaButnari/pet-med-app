@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-
+@use '../node_modules/@swimlane/ngx-datatable/index.css';
+@use '../node_modules/@swimlane/ngx-datatable/themes/material.scss';
+@use '../node_modules/@swimlane/ngx-datatable/themes/dark.css';
+@use '../node_modules/@swimlane/ngx-datatable/assets/icons.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

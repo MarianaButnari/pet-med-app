@@ -1,0 +1,10 @@
+
+
+<div>
+  <ngx-datatable class="material" [columnMode]="ColumnMode.flex" [headerHeight]="100" [rowHeight]="100" [footerHeight]="100" [rows]="rows" [columns]="columns"> </ngx-datatable>
+  <ngx-datatable-footer>
+    <ngb-pagination [(page)]="page"
+                    [pageSize]="pageSize"
+                    [collectionSize]="rows.length" />
+  </ngx-datatable-footer>
+</div>

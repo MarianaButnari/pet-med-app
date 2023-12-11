@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
 
   public loadDynamicComponent() {
     // Get a random component
-    const item = this.compArray[Math.floor(Math.random()*this.compArray.length)];
+    const item = this.compArray[2];
 
     this.loadDynamicComponentService.load(this.dynamicComponentDirective.viewContainerRef, item);
   }
