@@ -37,21 +37,21 @@ export class ErrorInterceptor implements HttpInterceptor {
       ));
   }
 
-  private handleErrorMessage(message: string) {
+  private handleErrorMessage(message: ErrorMessage) {
     switch (message) {
-      case ErrorMessage.EMAIL_EXISTS :
+      case  "EMAIL_EXISTS" :
         return ErrorConstants.EMAIL_EXISTS;
-      case ErrorMessage.OPERATION_NOT_ALLOWED :
+      case "OPERATION_NOT_ALLOWED" :
         return ErrorConstants.OPERATION_NOT_ALLOWED;
-      case ErrorMessage.TOO_MANY_ATTEMPTS_TRY_LATER :
+      case "TOO_MANY_ATTEMPTS_TRY_LATER" :
         return ErrorConstants.TOO_MANY_ATTEMPTS_TRY_LATER;
-      case ErrorMessage.INVALID_LOGIN_CREDENTIALS :
+      case "INVALID_LOGIN_CREDENTIALS" :
         return ErrorConstants.INVALID_LOGIN_CREDENTIALS;
-      case ErrorMessage.EMAIL_NOT_FOUND :
+      case "EMAIL_NOT_FOUND" :
         return ErrorConstants.EMAIL_NOT_FOUND;
-      case ErrorMessage.INVALID_PASSWORD :
+      case "INVALID_PASSWORD" :
         return ErrorConstants.INVALID_PASSWORD;
-      case ErrorMessage.USER_DISABLED :
+      case "USER_DISABLED" :
         return ErrorConstants.USER_DISABLED;
       default:
         return 'An error occurred';

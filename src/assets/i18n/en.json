@@ -19,6 +19,12 @@
     "CONTACT": "Contact",
     "TRACKER": "Tracker"
   },
+  "TABLE": {
+    "NAME": "Name",
+    "GENDER": "Gender",
+    "INSTITUTION": "Institution",
+    "MED_SPECIALITY": "Medical Specialty"
+  },
   "PROFILE": {
     "MENU": {
       "PROFILE": "My Profile",

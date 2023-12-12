@@ -1,7 +1,50 @@
 
 
 
-  <ngx-datatable class="material" [columnMode]="ColumnMode.flex" [headerHeight]="100" [rowHeight]="100" [footerHeight]="100" [rows]="rows" [columns]="columns">
+<!--  <ngx-datatable class="material" [columnMode]="ColumnMode.flex" [headerHeight]="100" [rowHeight]="100" [footerHeight]="100" [rows]="rows" [columns]="columns">-->
+  <ngx-datatable class="material" [columnMode]="ColumnMode.flex" [headerHeight]="100" [rowHeight]="100" [footerHeight]="100" [rows]="rows" [columns]="dataTableConfiguration.columns">
+    <ngx-datatable-column *ngFor="let column of columns"
+                          name="{{column.name! | translate}}">
+
+<!--      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>-->
+<!--        <a class="{{column._valueClass}}" *ngIf="columnIsActions(column._prop)">-->
+<!--          <ng-template ngx-datatable-cell-template-->
+<!--                       [ngTemplateOutlet]="templateRef"-->
+<!--                       [ngTemplateOutletContext]="{$implicit: (row)}">-->
+<!--          </ng-template>-->
+<!--        </a>-->
+<!--        <a class="{{column._valueClass}}" [ngSwitch]="column._prop">-->
+<!--          <div *ngSwitchCase="'created'">-->
+<!--            {{rowValue(row, column._prop) | date:'dd/MM/yyyy, HH:mm'}}-->
+<!--          </div>-->
+<!--          <div *ngSwitchCase="'pretUnitOrTarif'">-->
+<!--            {{rowValue(row, column._prop) | number : '1.2-2'}}-->
+<!--          </div>-->
+<!--          <div *ngSwitchCase="'pretTotalAprobat'">-->
+<!--            {{rowValue(row, column._prop) | number : '1.2-2'}}-->
+<!--          </div>-->
+<!--          <div *ngSwitchCase="'pretTotalSolicitat'">-->
+<!--            {{rowValue(row, column._prop) | number : '1.2-2'}}-->
+<!--          </div>-->
+<!--          <div *ngSwitchCase="'cantitateOrManopera'">-->
+<!--            <input type="number"-->
+<!--                   onlyNumber-->
+<!--                   step="0.1"-->
+<!--                   class="form-control"-->
+<!--                   name="cantitateOrManopera"-->
+<!--                   [min]=0-->
+<!--                   #cantitateOrManopera="ngModel"-->
+<!--                   [disabled]="getSessionRestrictions()"-->
+<!--                   [(ngModel)]="row.cantitateOrManopera"-->
+<!--                   (change)="updateQantity(row, cantitateOrManopera.value)"-->
+<!--                   [value]="cantitateOrManopera.value">-->
+<!--          </div>-->
+<!--          <div *ngSwitchDefault>-->
+<!--            {{ rowValue(row, column._prop) }}-->
+<!--          </div>-->
+<!--        </a>-->
+<!--      </ng-template>-->
+    </ngx-datatable-column>
 
     <ngx-datatable-footer>
       <ng-template ngx-datatable-footer-template>
