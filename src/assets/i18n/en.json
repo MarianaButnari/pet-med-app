@@ -2,11 +2,17 @@
   "GENERAL": {
     "COPYRIGHT": "Health Care Angular © 2023 All Rights Reserved."
   },
+  "BUTTON": {
+    "LOGIN": "Login",
+    "SIGN_IN": "Sign In",
+    "ADD": "Add"
+  },
   "USER": {
     "LOGIN": "Login",
     "LOGOUT": "Logout",
     "REGISTER": "Register",
     "NAME": "Username",
+    "USER_NAME": "Username",
     "PASSWORD": "Password",
     "FORGOT_PASS": "Forgot Password",
     "SIGN_IN": "Sign In",

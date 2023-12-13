@@ -1,15 +1,12 @@
-const DEFAULT_VALUES = {
-  name: null,
-  institution: null,
-  medSpecialty: null,
-}
-
+import {MedicalInstitution} from "./medical-institution.model";
 export class MedicalProfessional {
-  name: string;
-  institution: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  institution: MedicalInstitution;
   medSpecialty: string;
 
-  constructor(medicalProfessional: object = DEFAULT_VALUES) {
+  constructor(medicalProfessional: Partial<MedicalProfessional>) {
     Object.assign(this, medicalProfessional);
   }
 }

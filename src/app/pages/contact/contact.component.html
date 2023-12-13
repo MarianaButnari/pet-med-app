@@ -1,0 +1,51 @@
+<app-common-card>
+  <!--      CARD HEADER-->
+<!--  <div class="common-card-title">-->
+<!--  </div>-->
+  <!--      CARD BODY-->
+  <div class="common-card-body">
+    <form class="m-t-30" [formGroup]="medicalProfessionalForm">
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.NAME' | translate}}</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput formControlName="firstName"/>
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.NAME' | translate}}</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput formControlName="lastName"/>
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.NAME' | translate}}</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput formControlName="email"/>
+      </mat-form-field>
+
+<!--      <div formGroupName="institution">-->
+<!--      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.NAME' | translate}}</mat-label>-->
+<!--      <mat-form-field appearance="outline" class="w-100" color="primary">-->
+<!--        <input matInput formControlName="institutionName"/>-->
+<!--      </mat-form-field>-->
+
+<!--      </div>-->
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.NAME' | translate}}</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput formControlName="medSpecialty"/>
+      </mat-form-field>
+
+
+<!--      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">{{'USER.NAME' | translate}}</mat-label>-->
+<!--      <mat-form-field appearance="outline" class="w-100" color="primary">-->
+<!--        <mat-select value="mar">-->
+<!--          <mat-option *ngFor="let month of months" [value]="month.value">-->
+<!--            {{ month.viewValue }}-->
+<!--          </mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+
+      <a mat-flat-button color="primary" class="w-100" type="submit" (click)="submitForm()">
+        {{'BUTTON.ADD' | translate}}
+      </a>
+    </form>
+  </div>
+</app-common-card>

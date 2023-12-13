@@ -2,6 +2,11 @@
   "GENERAL": {
     "COPYRIGHT": "Health Care Angular © 2023 All Rights Reserved."
   },
+  "BUTTON": {
+    "LOGIN": "Autentificare",
+    "SIGN_IN": "Autentificare",
+    "ADD": "Adaugă"
+  },
   "USER": {
     "LOGIN": "Autentificare",
     "LOGOUT": "Deconectare",

@@ -27,7 +27,9 @@ const routes: Routes = [
   //   loadChildren: () =>
   //     import('./pages/doctor/doctor.module').then((m) => m.DoctorModule),
   // },
-  {path: 'doctor', canActivate: [LoggedInGuard], loadComponent: () => import('./pages/doctor/doctor.component').then(m => m.DoctorComponent)}
+  {path: 'doctor', canActivate: [LoggedInGuard], loadComponent: () => import('./pages/doctor/doctor.component').then(m => m.DoctorComponent)},
+  {path: 'contact', canActivate: [LoggedInGuard], loadComponent: () => import('./pages/contact/contact.component').then(m => m.ContactComponent)},
+  {path: 'tracker', canActivate: [LoggedInGuard], loadComponent: () => import('./pages/tracker/tracker.component').then(m => m.TrackerComponent)}
 ];
 
 @NgModule({

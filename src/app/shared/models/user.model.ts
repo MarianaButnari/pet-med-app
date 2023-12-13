@@ -1,4 +1,4 @@
-import {AddressModel} from "./address.model";
+import {Address} from "./address.model";
 import {Role} from "./role.model";
 import {UserProfile} from "./user-profile.model";
 
@@ -17,7 +17,7 @@ export class User {
   email: string;
   password: string;
   userProfile: UserProfile;
-  address: AddressModel;
+  address: Address;
   roles: Role[];
   idToken: string;
   expiresIn: Date;
@@ -32,7 +32,7 @@ export class User {
     // @ts-ignore
     if(user && user['address']) {
       // @ts-ignore
-      this.address = new AddressModel(user['address']);
+      this.address = new Address(user['address']);
     }
     // @ts-ignore
     if (user && user[`roles`]) {
