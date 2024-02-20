@@ -1,21 +1,22 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, DestroyRef, inject, OnInit, ViewChild} from '@angular/core';
 import {MatSidenav} from "@angular/material/sidenav";
-import {Subject, Subscription, take, takeUntil} from "rxjs";
 import {BreakpointObserver} from "@angular/cdk/layout";
 import {MOBILE_VIEW, MONITOR_VIEW, TABLET_VIEW} from "./app.constants";
 import {EventStorageService} from "./shared/services/event-storage.service";
 import {User} from "./shared/models/user.model";
 import {LangService} from "./shared/services/lang.service";
+import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   @ViewChild('leftsidenav') sidenav: MatSidenav;
   authenticated: boolean;
 
-  private readonly unsubscribe$: Subject<void> = new Subject();
+  // private readonly unsubscribe$: Subject<void> = new Subject();
+  private readonly destroyRef = inject(DestroyRef);
   private isMobileScreen = false;
   private isContentWidthFixed = true;
   private isCollapsedWidthFixed = false;
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.htmlElement = document.querySelector('html')!;
     this.breakpointObserver
       .observe([MOBILE_VIEW, TABLET_VIEW, MONITOR_VIEW])
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((state) => {
         // SidenavOpened must be reset true when layout changes
         this.isMobileScreen = state.breakpoints[MOBILE_VIEW];
@@ -42,11 +43,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.langService.init();
     this.getLoggedInUser();
-  }
-
-  ngOnDestroy() {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 
   toggleCollapsed() {
@@ -63,7 +59,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private getLoggedInUser() {
     this.eventStorage.isLoggedIn$
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((result: boolean) => {
         this.authenticated = result;
       });
